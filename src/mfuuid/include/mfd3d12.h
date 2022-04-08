@@ -36,7 +36,7 @@ interface IMFD3D12SynchronizationObject;
 
 /* Headers for imported files */
 
-#include <mfidl.h>
+#include <mfidl2.h>
 #include <d3d12.h>
 
 #ifdef __cplusplus

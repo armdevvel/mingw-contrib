@@ -109,7 +109,7 @@ interface IMFCaptureSink2;
 /* Headers for imported files */
 
 #include <mfobjects.h>
-#include <mfidl.h>
+#include <mfidl2.h>
 
 #ifdef __cplusplus
 extern "C" {
