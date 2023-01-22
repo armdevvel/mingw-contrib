@@ -1,14 +1,14 @@
-# wmffix - A fix for WMF on LLVM-MinGW
+# mingw-contrib - A fix for missing or outdated libraries in LLVM-MinGW (ARMv7)
 
-wmffix is a fix for the usage of WMF (Windows Media Foundation) on LLVM-MinGW for Windows on ARM32, based on MinGW's CRT libraries and headers. This was made mainly for Qt's multimedia library, but it can be used for any WMF purposes. It doesn't overwrite any files in `include` or `lib`, so there's nothing to worry about. 
+mingw-contrib is a fix for missing or outdated libraries in LLVM-MinGW (ARMv7). The original usage was to fix WMF (Windows Media Foundation), but now we need it for more. This was made mainly for Qt, but it can be used for any purposes. It doesn't overwrite any files in `include` or `lib`, so there's nothing to worry about. 
 
 # Installing
 
 ## MXE
-If you're using the [correct MXE sources](https://github.com/armdevvel/mxe), then all you have to do is run `make wmffix` in the root directory of MXE.
+If you're using the [correct MXE sources](https://github.com/armdevvel/mxe-SHARED), then all you have to do is run `make mingw-contrib` in the root directory of MXE.
 
 ## From Source
-To build wmffix from source, all you need is CMake and LLVM-MinGW. After cloning the source, at the root of the directory you can build the project by running:
+To build mingw-contrib from source, all you need is CMake and LLVM-MinGW. After cloning the source, at the root of the directory you can build the project by running:
 
 ```c
 mkdir build
@@ -21,6 +21,12 @@ make install
 
 # Using
 
+## bthprops
+
+Since this is missing entirely and just created, you use it as normal! No changes needed.
+
+## WMF
+
 Since the headers and libraries don't overwrite anything, they're their own separate files. Lets use an example C++ file with some headers.
 
 ```c++
@@ -30,7 +36,7 @@ Since the headers and libraries don't overwrite anything, they're their own sepa
 #include <propsys.h>
 ```
 
-Building an applciation with this code and wmffix will not work. You need to change it to:
+Building an applciation with this code and mingw-contrib will not work. You need to change it to:
 
 ```c++
 #include <mfapi2.h>
